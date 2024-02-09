@@ -1,9 +1,16 @@
+import { UseAppSelector } from "../store";
+
 export function TodoList() {
+  const todo = UseAppSelector((store) => {
+    return store.todo;
+  });
+  console.log(todo);
+
   return (
     <ul>
-      <li>Fazer café</li>
-      <li>Arrumar a casa</li>
-      <li>Comer brigadeiro</li>
+      {todo.map((todo, index) => (
+        <li key={index}>{todo}</li>
+      ))}
     </ul>
   );
 }
