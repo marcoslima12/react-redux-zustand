@@ -1,5 +1,4 @@
-/* import { styled } from "../../stitches.config"; */
-import { styled, css, globalCss, keyframes } from "@stitches/react";
+import { styled } from "../../stitches.config";
 
 export const Wrapper = styled("div", {
   backgroundColor: "$background",
@@ -42,40 +41,3 @@ export const Modules = styled("aside", {
   height: "100%",
   overflowY: "scroll",
 });
-
-export const LargeText = css({
-  fontSize: '50px',
-  color: 'red'
-})
-
-const moveRight = keyframes({
-  'from': {
-    transform: 'scale(1)'
-  },
-  'to': {
-    transform: 'scale(1.5)'
-  }
-});
-
-export const ButtonStitchesComponent = styled('button', {
-  backgroundColor: 'AliceBlue',
-  width: '100px',
-  height: '100px',
-  fontSize: '25px',
-  color: 'pink',
-  '&:hover': {
-    cursor: 'pointer',
-    background: 'yellow',
-    animation: `${moveRight} 500ms`
-  },
-  transition: 'background 0.25s'
-});
-
-
-
-export const globalStyles = globalCss({
- body: {
-  background: 'red',
-  color: 'white'
- }
-})

@@ -5,8 +5,6 @@ import {
   Wrapper,
   Modules,
   VideoClass,
-  ButtonStitchesComponent,
-  LargeText,
   globalStyles,
 } from "./style";
 import { Module } from "../../components/Module";
@@ -15,7 +13,7 @@ export function Player() {
   globalStyles();
   return (
     <Wrapper>
-      {/* <MainContent>
+      <MainContent>
         <VideoClass>
           <ReactPlayer
             controls
@@ -38,12 +36,7 @@ export function Player() {
             timeTotal="50"
           />
         </Modules>
-      </MainContent> */}
-
-      <ButtonStitchesComponent className={LargeText()}>
-        Teste com CSS
-      </ButtonStitchesComponent>
-      <ButtonStitchesComponent>Componente de Botão</ButtonStitchesComponent>
+      </MainContent>
     </Wrapper>
   );
 }
