@@ -55,10 +55,54 @@ const playerSlice = createSlice({
             },
           ],
         },
+        {
+          id: "3",
+          title: "Desenvolvimento Backend",
+          lessons: [
+            {
+              id: "gE48FQXRZ_o",
+              title: "Componente: Comment",
+              duration: "13:45",
+            },
+            { id: "Ng_Vk4tBl0g", title: "Responsividade", duration: "10:05" },
+            {
+              id: "h5JA3wfuW1k",
+              title: "Interações no JSX",
+              duration: "06:33",
+            },
+            {
+              id: "1G0vSTqWELg",
+              title: "Utilizando estado",
+              duration: "09:12",
+            },
+          ],
+        },
+        {
+          id: "4",
+          title: "Gestão de Projetos",
+          lessons: [
+            {
+              id: "gE48FQXRZ_o",
+              title: "Componente: Comment",
+              duration: "13:45",
+            },
+            { id: "Ng_Vk4tBl0g", title: "Responsividade", duration: "10:05" },
+          ],
+        },
       ],
+      currentLesson: {
+        moduleIndex: 0,
+        lessonIndex: 0,
+      },
     },
   },
-  reducers: {},
+  reducers: {
+    play: (state, action) => {
+      state.course.currentLesson.lessonIndex = action.payload.lessonIndex;
+      state.course.currentLesson.moduleIndex = action.payload.moduleIndex;
+    },
+  },
 });
 
 export const player = playerSlice.reducer;
+export const { play } = playerSlice.actions;

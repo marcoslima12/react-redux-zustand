@@ -1,14 +1,16 @@
 import ReactPlayer from "react-player";
 
-import {
-  MainContent,
-  Wrapper,
-  Modules,
-  VideoClass,
-} from "./style";
+import { MainContent, Wrapper, Modules, VideoClass } from "./style";
 import { Module } from "../../components/Module";
+import { UseAppSelector } from "../../store";
 
 export function Player() {
+  const modules = UseAppSelector((state) => {
+    return state.player.course.modules;
+  });
+
+  const currentLesson = UseAppSelector((state => {return state.player.course.currentLesson}));
+
   return (
     <Wrapper>
       <MainContent>
@@ -17,22 +19,19 @@ export function Player() {
             controls
             width={"100%"}
             height={"100%"}
-            url={"https://www.youtube.com/watch?v=VwEOzD4_SGI"}
+            url={`https://www.youtube.com/watch?v=${modules[currentLesson.moduleIndex].lessons[currentLesson.lessonIndex].id}`}
           />
         </VideoClass>
         <Modules>
-          <Module
-            classesAmount={5}
-            moduleTitle="A base do redux"
-            index={1}
-            timeTotal="40"
-          />
-          <Module
-            classesAmount={5}
-            moduleTitle="A base do redux 2 "
-            index={2}
-            timeTotal="50"
-          />
+          {modules.map((module, index) => {
+            return (
+              <Module
+                classesAmount={module.lessons.length}
+                index={index}
+                moduleTitle={module.title}
+              />
+            );
+          })}
         </Modules>
       </MainContent>
     </Wrapper>

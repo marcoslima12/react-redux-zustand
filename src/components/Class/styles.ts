@@ -21,4 +21,5 @@ export const ClassContainer = styled("div", {
   '&[data-state=open]': {
     border: '2px solid green',
   },
+  cursor: 'pointer'
 });

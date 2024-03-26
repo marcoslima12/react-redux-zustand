@@ -10,16 +10,20 @@ import {
 } from "./styles";
 import { Class } from "../Class";
 import { useState } from "react";
+import { UseAppSelector } from "../../store";
 
 interface ModuleProps {
   moduleTitle: string;
   index: number;
   classesAmount: number;
-  timeTotal: string;
 }
 
 export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
   const [open, setOpen] = useState(false);
+
+  const lessons = UseAppSelector((state) => {
+    return state.player.course.modules[index].lessons;
+  });
 
   return (
     <ModuleContainer onClick={() => setOpen(!open)}>
@@ -35,9 +39,15 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
         </ModuleDesc>
       </StyledTrigger>
       <Collapsible.Content>
-        <Class classTitle="Construindo a base UI" timeAmount="00:08:02" />
-        <Class classTitle="Botão com Radix" timeAmount="00:05:02" />
-        <Class classTitle="última aula" timeAmount="00:48:02" />
+        {lessons.map((lesson,lessonIndex) => (
+          <Class
+            classTitle={lesson.title}
+            timeAmount={lesson.duration}
+            key={lesson.id}
+            moduleIndex={index}
+            lessonIndex={lessonIndex}
+          />
+        ))}
       </Collapsible.Content>
     </ModuleContainer>
   );
