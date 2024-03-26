@@ -5,12 +5,10 @@ import {
   Wrapper,
   Modules,
   VideoClass,
-  globalStyles,
 } from "./style";
 import { Module } from "../../components/Module";
 
 export function Player() {
-  globalStyles();
   return (
     <Wrapper>
       <MainContent>

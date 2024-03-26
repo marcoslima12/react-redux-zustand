@@ -19,20 +19,19 @@ interface ModuleProps {
 }
 
 export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
-
   const [open, setOpen] = useState(false);
 
   return (
-    <ModuleContainer onClick={() =>  setOpen(!open)} >
+    <ModuleContainer onClick={() => setOpen(!open)}>
       <StyledTrigger>
-        <ModuleDesc open={open} >
+        <ModuleDesc /*  open={open} */>
           <StyledIndex>{index}</StyledIndex>
           <StyledDesc>
             {" "}
             <h2>{moduleTitle}</h2>
             <span>{classesAmount} aulas</span>
           </StyledDesc>
-         <CaretDown className="icon-caret" size={25} color="#D7D7D9" />
+          <CaretDown className="icon-caret" size={25} color="#D7D7D9" />
         </ModuleDesc>
       </StyledTrigger>
       <Collapsible.Content>

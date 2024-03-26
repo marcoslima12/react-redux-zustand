@@ -59,12 +59,12 @@ export const ModuleDesc = styled(
     justifyContent: "space-around",
     alignItems: "center",
     gap: "1rem",
-    ".icon-caret": {
+    "&.icon-caret": {
       transition: "transform 0.3s", // Adicione uma transição para suavizar a rotação
     },
   },
   ({ open }: CaretProps) => ({
-    ".icon-caret": {
+    "&.icon-caret": {
       transform: open ? "rotate(180deg)" : "none", // Gira o ícone verticalmente quando open for true
     },
   })
