@@ -1,10 +1,6 @@
 import { styled } from "../../stitches.config";
 import * as Collapsible from "@radix-ui/react-collapsible";
 
-interface CaretProps {
-  open: boolean;
-}
-
 export const ModuleContainer = styled(Collapsible.Root, {
   background: "#020202",
   color: "#D7D7D9",
@@ -52,23 +48,15 @@ export const StyledDesc = styled("div", {
   color: "#D7D7D9",
 });
 
-export const ModuleDesc = styled(
-  "div",
-  {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
-    gap: "1rem",
-    "&.icon-caret": {
-      transition: "transform 0.3s", // Adicione uma transição para suavizar a rotação
-    },
+export const ModuleDesc = styled("div", {
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  gap: "1rem",
+  "&.icon-caret": {
+    transition: "transform 0.3s", // Adicione uma transição para suavizar a rotação
   },
-  ({ open }: CaretProps) => ({
-    "&.icon-caret": {
-      transform: open ? "rotate(180deg)" : "none", // Gira o ícone verticalmente quando open for true
-    },
-  })
-);
+});
 
 export const StyledTrigger = styled(Collapsible.Trigger, {
   border: "none",

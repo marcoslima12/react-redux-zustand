@@ -1,11 +1,24 @@
-import { styled } from "../../stitches.config";
+import { styled, css } from "../../stitches.config";
 
 export const ClassName = styled("div", {
   fontSize: "0.875rem",
   textOverflow: "ellipsis",
   whiteSpace: "nowrap",
   overflow: "hidden",
-  marginRight: 'auto'
+  marginRight: "auto",
+  variants: {
+    isCurrentName: {
+      false: {
+        "&:hover": {
+          opacity: "0.8",
+        },
+      },
+    },
+  },
+});
+
+export const isCurrentCss = css({
+  color: "green",
 });
 
 export const ClassContainer = styled("div", {
@@ -18,8 +31,8 @@ export const ClassContainer = styled("div", {
 
   color: "#D7D7D9",
   padding: "0.5rem",
-  '&[data-state=open]': {
-    border: '2px solid green',
+  "&[data-state=open]": {
+    border: "2px solid green",
   },
-  cursor: 'pointer'
+  cursor: "pointer",
 });

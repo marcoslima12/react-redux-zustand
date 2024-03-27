@@ -8,13 +8,18 @@ export const Wrapper = styled("div", {
   fontFamily: "Roboto",
 });
 
+export const HeaderContainer = styled("div",  {
+  paddingLeft: '10%',
+  width: "100vw",
+  color: 'black',
+  marginTop: "5rem",
+})
+
 export const MainContent = styled("main", {
   width: "80%",
   height: "80%",
   margin: "auto",
-  marginTop: "5rem",
   display: "flex",
-
   background: "#020202",
 
   borderRadius: "0.25rem",

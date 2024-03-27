@@ -1,4 +1,4 @@
-import { CaretDown } from "@phosphor-icons/react";
+import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import * as Collapsible from "@radix-ui/react-collapsible";
 
 import {
@@ -28,18 +28,22 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
   return (
     <ModuleContainer onClick={() => setOpen(!open)}>
       <StyledTrigger>
-        <ModuleDesc /*  open={open} */>
+        <ModuleDesc>
           <StyledIndex>{index}</StyledIndex>
           <StyledDesc>
             {" "}
             <h2>{moduleTitle}</h2>
             <span>{classesAmount} aulas</span>
           </StyledDesc>
-          <CaretDown className="icon-caret" size={25} color="#D7D7D9" />
+          {!open ? (
+            <CaretDown className="icon-caret" size={25} color="#D7D7D9" />
+          ) : (
+            <CaretUp className="icon-caret" size={25} color="#D7D7D9" />
+          )}
         </ModuleDesc>
       </StyledTrigger>
       <Collapsible.Content>
-        {lessons.map((lesson,lessonIndex) => (
+        {lessons.map((lesson, lessonIndex) => (
           <Class
             classTitle={lesson.title}
             timeAmount={lesson.duration}
