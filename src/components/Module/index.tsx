@@ -19,15 +19,15 @@ interface ModuleProps {
 }
 
 export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(index != 0 ? true : false);
 
   const lessons = UseAppSelector((state) => {
     return state.player.course.modules[index].lessons;
   });
 
   return (
-    <ModuleContainer onClick={() => setOpen(!open)}>
-      <StyledTrigger>
+    <ModuleContainer defaultOpen={index === 0} onClick={() => setOpen(!open)}>
+      <StyledTrigger >
         <ModuleDesc>
           <StyledIndex>{index}</StyledIndex>
           <StyledDesc>

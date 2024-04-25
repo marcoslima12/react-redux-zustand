@@ -1,4 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { UseAppSelector } from "..";
+
+type PayloadType = {
+  lessonIndex: number;
+  moduleIndex: number;
+}
 
 const playerSlice = createSlice({
   name: "player",
@@ -97,12 +103,33 @@ const playerSlice = createSlice({
     },
   },
   reducers: {
-    play: (state, action) => {
+    play: (state, action: PayloadAction<PayloadType>) => {
       state.course.currentLesson.lessonIndex = action.payload.lessonIndex;
       state.course.currentLesson.moduleIndex = action.payload.moduleIndex;
     },
+    next: (state) => {
+      const nextClassIndex = state.course.currentLesson.lessonIndex + 1;
+      const nextClass = state.course.modules[state.course.currentLesson.moduleIndex].lessons[nextClassIndex];
+      if(nextClass){
+        state.course.currentLesson.lessonIndex = nextClassIndex;
+      } else {
+        const nextModuleIndex = state.course.currentLesson.moduleIndex + 1;
+        const nextModule = state.course.modules[nextModuleIndex];
+        if(nextModule){
+          state.course.currentLesson.lessonIndex = 0;
+          state.course.currentLesson.moduleIndex = nextModuleIndex;
+        }
+      }
+    }
   },
 });
 
 export const player = playerSlice.reducer;
-export const { play } = playerSlice.actions;
+export const { play, next } = playerSlice.actions;
+
+
+export const useCurrentLesson = () => {
+  return UseAppSelector((state) => {
+    return state.player.course.currentLesson;
+  });
+}

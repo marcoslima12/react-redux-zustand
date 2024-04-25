@@ -1,8 +1,7 @@
 import { PlayCircle, VideoCamera } from "@phosphor-icons/react";
 import { ClassContainer, ClassName } from "./styles";
 import { useDispatch } from "react-redux";
-import { play } from "../../store/slices/player";
-import { UseAppSelector } from "../../store";
+import { play, useCurrentLesson } from "../../store/slices/player";
 import { useEffect, useState } from "react";
 import { isCurrentCss } from "./styles";
 
@@ -27,25 +26,19 @@ export const Class = ({
     dispatch(play({ moduleIndex, lessonIndex }));
   };
 
-  const currentLesson = UseAppSelector((state) => {
-    return state.player.course.currentLesson;
-  });
+  const { lessonIndex: currentLessonIndex, moduleIndex: currentModuleIndex } =
+    useCurrentLesson();
 
   useEffect(() => {
     if (
-      currentLesson.moduleIndex === moduleIndex &&
-      currentLesson.lessonIndex === lessonIndex
+      currentModuleIndex === moduleIndex &&
+      currentLessonIndex === lessonIndex
     ) {
       setIsCurrent(true);
     } else {
       setIsCurrent(false);
     }
-  }, [
-    moduleIndex,
-    lessonIndex,
-    currentLesson.moduleIndex,
-    currentLesson.lessonIndex,
-  ]);
+  }, [moduleIndex, lessonIndex, currentModuleIndex, currentLessonIndex]);
 
   return (
     <ClassContainer
