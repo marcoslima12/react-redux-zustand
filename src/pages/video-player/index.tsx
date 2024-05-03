@@ -5,12 +5,13 @@ import {
   Wrapper,
   Modules,
   VideoClass,
-  HeaderContainer,
+  PageHeaderContainer,
 } from "./style";
 import { Module } from "../../components/Module";
 import { UseAppSelector, useAppDispatch } from "../../store";
 import { loadCourse, next, useCurrentLesson } from "../../store/slices/player";
 import { useEffect } from "react";
+import { Header } from "../../components/Header";
 
 export function Player() {
   const modules = UseAppSelector((state) => {
@@ -31,16 +32,16 @@ export function Player() {
     dispatch(loadCourse());
   }, []);
 
-  const Header = () => {
+  const PageHeader = () => {
     return (
-      <HeaderContainer>
+      <PageHeaderContainer>
         {modules && (
           <>
             <h1>{modules[moduleIndex].title}</h1>
             <h2>{modules[moduleIndex].lessons[lessonIndex].title}</h2>
           </>
         )}
-      </HeaderContainer>
+      </PageHeaderContainer>
     );
   };
 
@@ -53,10 +54,13 @@ export function Player() {
   return (
     <Wrapper>
       <Header />
+      <PageHeader />
       <MainContent>
         <VideoClass>
           {isLoading ? (
-            <div><h1>LOADING</h1></div> // adicionar um loading legal aqui
+            <div>
+              <h1>LOADING</h1>
+            </div> // adicionar um loading legal aqui
           ) : (
             <ReactPlayer
               controls

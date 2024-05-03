@@ -10,7 +10,7 @@ export const lightTheme = {
   export const darkTheme = {
     colors: {
       primary: 'cyan',
-      background: 'black',
+      background: '#0B2F3D',
       text: 'white',
     },
   };

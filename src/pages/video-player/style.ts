@@ -1,32 +1,32 @@
 import { styled } from "../../stitches.config";
 
 export const Wrapper = styled("div", {
-  backgroundColor: "$background",
-  width: "100vw",
+  backgroundColor: "#13475B",
+  width: "100%",
   height: "100vh",
-
   fontFamily: "Roboto",
 });
 
-export const HeaderContainer = styled("div",  {
+export const PageHeaderContainer = styled("div",  {
   paddingLeft: '10%',
-  width: "100vw",
-  color: 'black',
-  marginTop: "5rem",
+  width: "100%",
+  boxSizing: 'border-box',
+  color: '#FFFFFF',
+  paddingBottom: 10
 })
 
 export const MainContent = styled("main", {
   width: "80%",
-  height: "80%",
+  height: 600,
   margin: "auto",
   display: "flex",
   background: "#020202",
-
   borderRadius: "0.25rem",
 });
 
 export const VideoClass = styled("div", {
   width: "75%",
+  height: '100%',
   color: 'white'
 });
 
