@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { next, play, player as playerReducer } from "./player";
+import { PlayerState, next, play, player as playerReducer } from "./player";
 
-const exempleState = {
+const exempleState: PlayerState = {
   course: {
+    id: 1,
     modules: [
       {
-        id: "1",
+        id: 1,
         title: "Iniciando com React",
         lessons: [
           { id: "Jai8w6K_GnY", title: "CSS Modules", duration: "13:45" },
@@ -17,7 +18,7 @@ const exempleState = {
         ],
       },
       {
-        id: "2",
+        id: 2,
         title: "Estrutura da aplicação",
         lessons: [
           {
@@ -29,11 +30,12 @@ const exempleState = {
         ],
       },
     ],
-    currentLesson: {
-      moduleIndex: 0,
-      lessonIndex: 0,
-    },
   },
+  currentLesson: {
+    moduleIndex: 0,
+    lessonIndex: 0,
+  },
+  isLoading: false,
 };
 
 describe("player slice", () => {
@@ -45,34 +47,34 @@ describe("player slice", () => {
 
     const newState = playerReducer(exempleState, play(lessonToPlay));
 
-    expect(newState.course.currentLesson.lessonIndex).toEqual(2);
-    expect(newState.course.currentLesson.moduleIndex).toEqual(2);
+    expect(newState.currentLesson.lessonIndex).toEqual(2);
+    expect(newState.currentLesson.moduleIndex).toEqual(2);
   });
 
   it("should be able to play next lesson in the same module automatically", () => {
     const newState = playerReducer(exempleState, next());
 
-    expect(newState.course.currentLesson.lessonIndex).toEqual(1);
-    expect(newState.course.currentLesson.moduleIndex).toEqual(0);
+    expect(newState.currentLesson.lessonIndex).toEqual(1);
+    expect(newState.currentLesson.moduleIndex).toEqual(0);
   });
 
   it("should be able to play next lesson in next module if avaiable", () => {
-    exempleState.course.currentLesson.lessonIndex = 1;
-    exempleState.course.currentLesson.moduleIndex = 0;
+    exempleState.currentLesson.lessonIndex = 1;
+    exempleState.currentLesson.moduleIndex = 0;
 
     const newState = playerReducer(exempleState, next());
 
-    expect(newState.course.currentLesson.lessonIndex).toEqual(0);
-    expect(newState.course.currentLesson.moduleIndex).toEqual(1);
+    expect(newState.currentLesson.lessonIndex).toEqual(0);
+    expect(newState.currentLesson.moduleIndex).toEqual(1);
   });
 
-  it("shoudl not be able to play next lesson automatically if there is not next lesson avaiable", () => {
-    exempleState.course.currentLesson.lessonIndex = 1;
-    exempleState.course.currentLesson.moduleIndex = 1;
+  it("should not be able to play next lesson automatically if there is not next lesson avaiable", () => {
+    exempleState.currentLesson.lessonIndex = 1;
+    exempleState.currentLesson.moduleIndex = 1;
 
     const newState = playerReducer(exempleState, next());
 
-    expect(newState.course.currentLesson.lessonIndex).toEqual(1);
-    expect(newState.course.currentLesson.moduleIndex).toEqual(1);
+    expect(newState.currentLesson.lessonIndex).toEqual(1);
+    expect(newState.currentLesson.moduleIndex).toEqual(1);
   });
 });

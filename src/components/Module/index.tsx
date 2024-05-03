@@ -22,8 +22,12 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
   const [open, setOpen] = useState(index != 0 ? true : false);
 
   const lessons = UseAppSelector((state) => {
-    return state.player.course.modules[index].lessons;
+    return state.player.course?.modules[index].lessons;
   });
+
+  if(!lessons) {
+    return;
+  }
 
   return (
     <ModuleContainer defaultOpen={index === 0} onClick={() => setOpen(!open)}>
@@ -43,7 +47,7 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
         </ModuleDesc>
       </StyledTrigger>
       <Collapsible.Content>
-        {lessons.map((lesson, lessonIndex) => (
+        {lessons && lessons.map((lesson, lessonIndex) => (
           <Class
             classTitle={lesson.title}
             timeAmount={lesson.duration}

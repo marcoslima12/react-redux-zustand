@@ -1,9 +1,9 @@
 import { PlayCircle, VideoCamera } from "@phosphor-icons/react";
 import { ClassContainer, ClassName } from "./styles";
-import { useDispatch } from "react-redux";
 import { play, useCurrentLesson } from "../../store/slices/player";
 import { useEffect, useState } from "react";
 import { isCurrentCss } from "./styles";
+import { useAppDispatch } from "../../store";
 
 interface ClassProps {
   classTitle: string;
@@ -18,7 +18,7 @@ export const Class = ({
   moduleIndex,
   lessonIndex,
 }: ClassProps) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [isCurrent, setIsCurrent] = useState(false);
 

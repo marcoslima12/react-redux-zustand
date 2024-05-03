@@ -27,6 +27,7 @@ export const MainContent = styled("main", {
 
 export const VideoClass = styled("div", {
   width: "75%",
+  color: 'white'
 });
 
 export const ModuleTitle = styled("h2", {
