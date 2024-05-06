@@ -30,6 +30,7 @@ export function Player() {
 
   useEffect(() => {
     dispatch(loadCourse());
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const PageHeader = () => {
