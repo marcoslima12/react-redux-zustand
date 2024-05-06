@@ -7,13 +7,14 @@ export const Wrapper = styled("div", {
   fontFamily: "Roboto",
 });
 
-export const PageHeaderContainer = styled("div",  {
-  paddingLeft: '10%',
+export const PageHeaderContainer = styled("div", {
   width: "100%",
-  boxSizing: 'border-box',
-  color: '#FFFFFF',
-  paddingBottom: 10
-})
+  boxSizing: "border-box",
+  color: "#FFFFFF",
+  paddingLeft: "10%",
+  paddingBottom: 5,
+  paddingTop: 5,
+});
 
 export const MainContent = styled("main", {
   width: "80%",
@@ -25,9 +26,12 @@ export const MainContent = styled("main", {
 });
 
 export const VideoClass = styled("div", {
+  display: "flex",
+  justifyContent: " center",
+  alignItems: "center",
   width: "75%",
-  height: '100%',
-  color: 'white'
+  height: "100%",
+  color: "white",
 });
 
 export const ModuleTitle = styled("h2", {
@@ -46,4 +50,21 @@ export const Modules = styled("aside", {
   width: "25%",
   height: "100%",
   overflowY: "scroll",
+  background: "rgb(11, 47, 61)",
+});
+
+export const SkeletonContainer = styled("div", {
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+  gap: "1rem",
+  margin: '20px'
+});
+
+export const SkeletonContent = styled("div", {
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-start",
+  justifyItems: "space-between",
 });

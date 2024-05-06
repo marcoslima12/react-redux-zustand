@@ -30,7 +30,7 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
   }
 
   return (
-    <ModuleContainer defaultOpen={index === 0}>
+    <ModuleContainer>
       <StyledTrigger onClick={() => setOpen(!open)}>
         <ModuleDesc>
           <StyledIndex>{index}</StyledIndex>

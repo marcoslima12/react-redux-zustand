@@ -1,4 +1,6 @@
 import ReactPlayer from "react-player";
+import Skeleton from "@mui/material/Skeleton";
+import CircularProgress from "@mui/material/CircularProgress";
 
 import {
   MainContent,
@@ -6,6 +8,8 @@ import {
   Modules,
   VideoClass,
   PageHeaderContainer,
+  SkeletonContainer,
+  SkeletonContent,
 } from "./style";
 import { Module } from "../../components/Module";
 import { UseAppSelector, useAppDispatch } from "../../store";
@@ -30,16 +34,21 @@ export function Player() {
 
   useEffect(() => {
     dispatch(loadCourse());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const PageHeader = () => {
     return (
       <PageHeaderContainer>
-        {modules && (
+        {modules ? (
           <>
             <h1>{modules[moduleIndex].title}</h1>
             <h2>{modules[moduleIndex].lessons[lessonIndex].title}</h2>
+          </>
+        ) : (
+          <>
+            <Skeleton variant="text" width={400} sx={{ fontSize: "50px" }} />
+            <Skeleton variant="text" width={300} sx={{ fontSize: "50px" }} />
           </>
         )}
       </PageHeaderContainer>
@@ -59,9 +68,7 @@ export function Player() {
       <MainContent>
         <VideoClass>
           {isLoading ? (
-            <div>
-              <h1>LOADING</h1>
-            </div> // adicionar um loading legal aqui
+            <CircularProgress size={150} color="inherit" />
           ) : (
             <ReactPlayer
               controls
@@ -77,7 +84,56 @@ export function Player() {
           )}
         </VideoClass>
         <Modules>
-          {modules &&
+          {isLoading ? (
+            <>
+              <SkeletonContainer>
+                <Skeleton variant="circular" width={50} height={50} />
+                <SkeletonContent>
+                  <Skeleton
+                    variant="text"
+                    width={150}
+                    sx={{ fontSize: "1rem" }}
+                  />
+                  <Skeleton
+                    variant="text"
+                    width={100}
+                    sx={{ fontSize: "0.75rem" }}
+                  />
+                </SkeletonContent>
+              </SkeletonContainer>
+              <SkeletonContainer>
+                <Skeleton variant="circular" width={50} height={50} />
+                <SkeletonContent>
+                  <Skeleton
+                    variant="text"
+                    width={150}
+                    sx={{ fontSize: "1rem" }}
+                  />
+                  <Skeleton
+                    variant="text"
+                    width={100}
+                    sx={{ fontSize: "0.75rem" }}
+                  />
+                </SkeletonContent>
+              </SkeletonContainer>
+              <SkeletonContainer>
+                <Skeleton variant="circular" width={50} height={50} />
+                <SkeletonContent>
+                  <Skeleton
+                    variant="text"
+                    width={150}
+                    sx={{ fontSize: "1rem" }}
+                  />
+                  <Skeleton
+                    variant="text"
+                    width={100}
+                    sx={{ fontSize: "0.75rem" }}
+                  />
+                </SkeletonContent>
+              </SkeletonContainer>
+            </>
+          ) : (
+            modules &&
             modules.map((module, index) => {
               return (
                 <Module
@@ -87,7 +143,8 @@ export function Player() {
                   moduleTitle={module.title}
                 />
               );
-            })}
+            })
+          )}
         </Modules>
       </MainContent>
     </Wrapper>

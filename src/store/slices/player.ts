@@ -40,6 +40,9 @@ const initialState: PlayerState = {
 
 export const loadCourse = createAsyncThunk("player/load", async () => {
   try {
+    // Simular um atraso de 5 segundos
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+
     const response = await api.get("/courses/1");
     console.log(response.data);
     return response.data;

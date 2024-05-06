@@ -2,7 +2,7 @@ import { styled } from "../../stitches.config";
 import * as Collapsible from "@radix-ui/react-collapsible";
 
 export const ModuleContainer = styled(Collapsible.Root, {
-  background: "#020202",
+  background: "rgb(19, 71, 91)",
   color: "#D7D7D9",
   border: "1px solid #494949",
   display: "flex",
@@ -14,7 +14,6 @@ export const ModuleContainer = styled(Collapsible.Root, {
 
 export const StyledIndex = styled("div", {
   borderRadius: "50%",
-  //border: "3px solid #F26800",
   fontSize: "30px",
   fontWeight: "700",
   width: "2.7rem",
