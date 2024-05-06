@@ -54,6 +54,17 @@ export function Player() {
       </PageHeaderContainer>
     );
   };
+  const ModuleSkeleton = () => {
+    return (
+      <SkeletonContainer>
+        <Skeleton variant="circular" width={50} height={50} />
+        <SkeletonContent>
+          <Skeleton variant="text" width={150} sx={{ fontSize: "1rem" }} />
+          <Skeleton variant="text" width={100} sx={{ fontSize: "0.75rem" }} />
+        </SkeletonContent>
+      </SkeletonContainer>
+    );
+  };
 
   useEffect(() => {
     if (modules) {
@@ -86,51 +97,10 @@ export function Player() {
         <Modules>
           {isLoading ? (
             <>
-              <SkeletonContainer>
-                <Skeleton variant="circular" width={50} height={50} />
-                <SkeletonContent>
-                  <Skeleton
-                    variant="text"
-                    width={150}
-                    sx={{ fontSize: "1rem" }}
-                  />
-                  <Skeleton
-                    variant="text"
-                    width={100}
-                    sx={{ fontSize: "0.75rem" }}
-                  />
-                </SkeletonContent>
-              </SkeletonContainer>
-              <SkeletonContainer>
-                <Skeleton variant="circular" width={50} height={50} />
-                <SkeletonContent>
-                  <Skeleton
-                    variant="text"
-                    width={150}
-                    sx={{ fontSize: "1rem" }}
-                  />
-                  <Skeleton
-                    variant="text"
-                    width={100}
-                    sx={{ fontSize: "0.75rem" }}
-                  />
-                </SkeletonContent>
-              </SkeletonContainer>
-              <SkeletonContainer>
-                <Skeleton variant="circular" width={50} height={50} />
-                <SkeletonContent>
-                  <Skeleton
-                    variant="text"
-                    width={150}
-                    sx={{ fontSize: "1rem" }}
-                  />
-                  <Skeleton
-                    variant="text"
-                    width={100}
-                    sx={{ fontSize: "0.75rem" }}
-                  />
-                </SkeletonContent>
-              </SkeletonContainer>
+              <ModuleSkeleton />
+              <ModuleSkeleton />
+              <ModuleSkeleton />
+              <ModuleSkeleton />
             </>
           ) : (
             modules &&
