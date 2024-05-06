@@ -4,7 +4,7 @@ import * as Collapsible from "@radix-ui/react-collapsible";
 export const ModuleContainer = styled(Collapsible.Root, {
   background: "rgb(19, 71, 91)",
   color: "#D7D7D9",
-  border: "1px solid #494949",
+  border: "1px solid #506266",
   display: "flex",
   flexDirection: "column",
   padding: "1rem",

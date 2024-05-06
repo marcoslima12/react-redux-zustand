@@ -54,11 +54,14 @@ export const Modules = styled("aside", {
 });
 
 export const SkeletonContainer = styled("div", {
-  display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
   gap: "1rem",
-  margin: '20px'
+  border: "1px solid #506266",
+  display: "flex",
+  padding: "1rem",
+  margin: "0.5rem",
+  borderRadius: "0.3rem",
 });
 
 export const SkeletonContent = styled("div", {
