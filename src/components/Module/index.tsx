@@ -25,13 +25,13 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
     return state.player.course?.modules[index].lessons;
   });
 
-  if(!lessons) {
+  if (!lessons) {
     return;
   }
 
   return (
-    <ModuleContainer defaultOpen={index === 0} onClick={() => setOpen(!open)}>
-      <StyledTrigger >
+    <ModuleContainer defaultOpen={index === 0}>
+      <StyledTrigger onClick={() => setOpen(!open)}>
         <ModuleDesc>
           <StyledIndex>{index}</StyledIndex>
           <StyledDesc>
@@ -47,15 +47,16 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
         </ModuleDesc>
       </StyledTrigger>
       <Collapsible.Content>
-        {lessons && lessons.map((lesson, lessonIndex) => (
-          <Class
-            classTitle={lesson.title}
-            timeAmount={lesson.duration}
-            key={lesson.id}
-            moduleIndex={index}
-            lessonIndex={lessonIndex}
-          />
-        ))}
+        {lessons &&
+          lessons.map((lesson, lessonIndex) => (
+            <Class
+              classTitle={lesson.title}
+              timeAmount={lesson.duration}
+              key={lesson.id}
+              moduleIndex={index}
+              lessonIndex={lessonIndex}
+            />
+          ))}
       </Collapsible.Content>
     </ModuleContainer>
   );
