@@ -10,28 +10,38 @@
             {
               "id": "Jai8w6K_GnY",
               "title": "CSS Modules",
-              "duration": "13:45"
+              "duration": "13:45",
+              "isFinished": true
             },
             {
               "id": "w-DW4DhDfcw",
               "title": "Estilização do Post",
-              "duration": "10:05"
+              "duration": "10:05",
+              "isFinished": true
             },
             {
               "id": "D83-55LUdKE",
               "title": "Componente: Header",
-              "duration": "06:33"
+              "duration": "06:33",
+              "isFinished": false
             },
             {
               "id": "W_ATsETujaY",
               "title": "Componente: Sidebar",
-              "duration": "09:12"
+              "duration": "09:12",
+              "isFinished": false
             },
-            { "id": "Pj8dPeameYo", "title": "CSS Global", "duration": "03:23" },
+            {
+              "id": "Pj8dPeameYo",
+              "title": "CSS Global",
+              "duration": "03:23",
+              "isFinished": false
+            },
             {
               "id": "8KBq2vhwbac",
               "title": "Form de comentários",
-              "duration": "11:34"
+              "duration": "11:34",
+              "isFinished": false
             }
           ]
         },
@@ -42,22 +52,26 @@
             {
               "id": "gE48FQXRZ_o",
               "title": "Componente: Comment",
-              "duration": "13:45"
+              "duration": "13:45",
+              "isFinished": false
             },
             {
               "id": "Ng_Vk4tBl0g",
               "title": "Responsividade",
-              "duration": "10:05"
+              "duration": "10:05",
+              "isFinished": false
             },
             {
               "id": "h5JA3wfuW1k",
               "title": "Interações no JSX",
-              "duration": "06:33"
+              "duration": "06:33",
+              "isFinished": false
             },
             {
               "id": "1G0vSTqWELg",
               "title": "Utilizando estado",
-              "duration": "09:12"
+              "duration": "09:12",
+              "isFinished": false
             }
           ]
         },
@@ -68,22 +82,26 @@
             {
               "id": "gE48FQXRZ_o",
               "title": "Componente: Comment",
-              "duration": "13:45"
+              "duration": "13:45",
+              "isFinished": false
             },
             {
               "id": "Ng_Vk4tBl0g",
               "title": "Responsividade",
-              "duration": "10:05"
+              "duration": "10:05",
+              "isFinished": false
             },
             {
               "id": "h5JA3wfuW1k",
               "title": "Interações no JSX",
-              "duration": "06:33"
+              "duration": "06:33",
+              "isFinished": false
             },
             {
               "id": "1G0vSTqWELg",
               "title": "Utilizando estado",
-              "duration": "09:12"
+              "duration": "09:12",
+              "isFinished": false
             }
           ]
         },
@@ -94,12 +112,14 @@
             {
               "id": "gE48FQXRZ_o",
               "title": "Componente: Comment",
-              "duration": "13:45"
+              "duration": "13:45",
+              "isFinished": false
             },
             {
               "id": "Ng_Vk4tBl0g",
               "title": "Responsividade",
-              "duration": "10:05"
+              "duration": "10:05",
+              "isFinished": false
             }
           ]
         }

@@ -24,10 +24,7 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
   const lessons = UseAppSelector((state) => {
     return state.player.course?.modules[index].lessons;
   });
-
-  if (!lessons) {
-    return;
-  }
+  console.log(lessons);
 
   return (
     <ModuleContainer>
@@ -55,6 +52,7 @@ export const Module = ({ classesAmount, index, moduleTitle }: ModuleProps) => {
               key={lesson.id}
               moduleIndex={index}
               lessonIndex={lessonIndex}
+              isFinished={lesson.isFinished}
             />
           ))}
       </Collapsible.Content>

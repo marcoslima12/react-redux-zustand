@@ -16,6 +16,7 @@ interface Course {
       id: string;
       title: string;
       duration: string;
+      isFinished: boolean;
     }>;
   }>;
 }

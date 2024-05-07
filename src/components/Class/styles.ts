@@ -18,7 +18,11 @@ export const ClassName = styled("div", {
 });
 
 export const isCurrentCss = css({
-  color: "green",
+  color: "#1d831d",
+});
+
+export const isFinishedLessonCss = css({
+  color: "#008000",
 });
 
 export const ClassContainer = styled("div", {

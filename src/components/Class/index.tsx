@@ -2,7 +2,7 @@ import { PlayCircle, VideoCamera } from "@phosphor-icons/react";
 import { ClassContainer, ClassName } from "./styles";
 import { play, useCurrentLesson } from "../../store/slices/player";
 import { useEffect, useState } from "react";
-import { isCurrentCss } from "./styles";
+import { isCurrentCss, isFinishedLessonCss } from "./styles";
 import { useAppDispatch } from "../../store";
 
 interface ClassProps {
@@ -10,6 +10,7 @@ interface ClassProps {
   timeAmount: string;
   moduleIndex: number;
   lessonIndex: number;
+  isFinished: boolean;
 }
 
 export const Class = ({
@@ -17,6 +18,7 @@ export const Class = ({
   timeAmount,
   moduleIndex,
   lessonIndex,
+  isFinished,
 }: ClassProps) => {
   const dispatch = useAppDispatch();
 
@@ -42,7 +44,9 @@ export const Class = ({
 
   return (
     <ClassContainer
-      className={isCurrent ? isCurrentCss() : ""}
+      className={
+        isCurrent ? isCurrentCss() : isFinished ? isFinishedLessonCss() : ""
+      }
       onClick={handlePlayClass}
     >
       {isCurrent ? (
